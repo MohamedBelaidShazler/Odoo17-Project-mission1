@@ -1,0 +1,144 @@
+<odoo>
+    <data>
+        <template id="fleets_page" name="Fleets - Véhicules Disponibles">
+            <t t-call="website.layout">
+                <div class="container py-5">
+                    <h2 class="text-center text-primary mb-4">🚗 Véhicules avec Contrats Associés</h2>
+
+                    <form action="/fleets" method="get" class="mb-4">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="start_date" class="form-label">Disponible du :</label>
+                                <input type="date" id="start_date" name="start_date" class="form-control"
+                                       t-att-value="request.params.get('start_date') or ''"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="end_date" class="form-label">Disponible au :</label>
+                                <input type="date" id="end_date" name="end_date" class="form-control"
+                                       t-att-value="request.params.get('end_date') or ''"/>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary w-100">Rechercher</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Véhicules avec Contrats Associés -->
+                    <t t-if="vehicles_with_contract">
+                        <h3 class="text-center text-success mb-4">🚗 Véhicules avec Contrat</h3>
+                        <div class="row g-4">
+                            <t t-foreach="vehicles_with_contract" t-as="car">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="card shadow-lg border-0 h-100">
+                                        <!-- Affichage de l'image du véhicule -->
+                                        <t t-if="car.vehicle_image">
+                                            <img t-att-src="'/web/image/fleet.vehicle/%d/vehicle_image' % car.id"
+                                                 class="card-img-top img-fluid rounded-top"
+                                                 alt="Image du véhicule"
+                                                 style="height: 200px; object-fit: cover;"/>
+                                        </t>
+                                        <t t-else="">
+                                            <img src="/web/static/src/img/placeholder.png"
+                                                 class="card-img-top img-fluid rounded-top"
+                                                 alt="Image non disponible"
+                                                 style="height: 200px; object-fit: cover;"/>
+                                        </t>
+
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary">
+                                                <t t-esc="car.name"/>
+                                            </h5>
+                                            <p class="card-text">
+                                                <strong>🚘 Modèle :</strong> <t t-esc="car.model_id.name or 'Non spécifié'"/> <br/>
+                                                <strong>🏭 Fabricant :</strong> <t t-esc="car.model_id.brand_id.name or 'Inconnu'"/> <br/>
+                                            </p>
+                                        </div>
+
+                                        <!-- Affichage des contrats associés -->
+                                        <t t-if="car.rental_contract_ids">
+                                            <div class="card-footer  border-0 text-start">
+                                                <strong>Contrats associés :</strong>
+                                                <ul class="list-unstyled">
+                                                    <t t-foreach="car.rental_contract_ids" t-as="contract">
+                                                        <li class="mb-2">
+                                                            <span class="text-muted">Début : </span>
+                                                            <t t-esc="contract.start_date.strftime('%d/%m/%y') if contract.start_date else 'Non spécifié'"/>
+                                                            <span class="text-muted"> | Fin : </span>
+                                                            <t t-esc="contract.expiration_date.strftime('%d/%m/%y') if contract.expiration_date else 'Non spécifié'"/>
+                                                        </li>
+                                                    </t>
+                                                </ul>
+                                            </div>
+                                        </t>
+
+                                        <!-- Lien vers les détails du véhicule -->
+                                        <div class="card-footer bg-white border-0 text-center">
+                                           <a t-att-href="'/car_details?car_id=' + str(car.id) + '&amp;start_date=' + (start_date or '') + '&amp;end_date=' + (end_date or '')"
+                                              class="btn btn-outline-primary w-100 rounded-pill">
+                                                  Voir les détails
+                                           </a>
+                                       </div>
+
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="col-12 text-center">
+                            <p class="alert alert-warning">🚘 Aucun véhicule avec un contrat associé disponible.</p>
+                        </div>
+                    </t>
+
+                    <!-- Véhicules sans Contrat -->
+                    <t t-if="vehicles_without_contract">
+                        <h3 class="text-center text-danger mt-4">🚗 Véhicules Sans Contrat</h3>
+                        <div class="row g-4 ">
+                            <t t-foreach="vehicles_without_contract" t-as="car">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="card shadow-lg border-0 h-100">
+                                        <!-- Affichage de l'image du véhicule -->
+                                        <t t-if="car.vehicle_image">
+                                            <img t-att-src="'/web/image/fleet.vehicle/%d/vehicle_image' % car.id"
+                                                 class="card-img-top img-fluid rounded-top"
+                                                 alt="Image du véhicule"
+                                                 style="height: 200px; object-fit: cover;"/>
+                                        </t>
+                                        <t t-else="">
+                                            <img src="/web/static/src/img/placeholder.png"
+                                                 class="card-img-top img-fluid rounded-top"
+                                                 alt="Image non disponible"
+                                                 style="height: 200px; object-fit: cover;"/>
+                                        </t>
+
+                                        <div class="card-body">
+                                            <h5 class="card-title text-primary">
+                                                <t t-esc="car.name"/>
+                                            </h5>
+                                            <p class="card-text">
+                                                <strong>🚘 Modèle :</strong> <t t-esc="car.model_id.name or 'Non spécifié'"/> <br/>
+                                                <strong>🏭 Fabricant :</strong> <t t-esc="car.model_id.brand_id.name or 'Inconnu'"/> <br/>
+                                            </p>
+                                        </div>
+
+                                        <!-- Lien vers les détails du véhicule -->
+                                        <div class="card-footer bg-white border-0 text-center">
+                                            <a t-att-href="'/car_details?car_id=' + str(car.id)" class="btn btn-outline-primary w-100 rounded-pill">
+                                                Voir les détails
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="col-12 text-center">
+                            <p class="alert alert-warning">🚘 Aucun véhicule sans contrat disponible.</p>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

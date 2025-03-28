@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="menu_home" model="website.menu">
+            <field name="name">Home</field>
+            <field name="url">/</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+
+        <record id="menu_fleets" model="website.menu">
+            <field name="name">Fleets</field>
+            <field name="url">/fleets</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+
+        <record id="menu_contact" model="website.menu">
+            <field name="name">Contact</field>
+            <field name="url">/contact</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">30</field>
+        </record>
+
+    </data>
+
+    <data>
+
+        <record id="action_home_website" model="ir.actions.act_url">
+            <field name="name">Website Home</field>
+            <field name="target">self</field>
+            <field name="url" eval="'/'"/>
+        </record>
+
+        <record id="action_fleets_website" model="ir.actions.act_url">
+            <field name="name">Website Fleets</field>
+            <field name="target">self</field>
+            <field name="url" eval="'/fleets/'"/>
+        </record>
+
+        <record id="action_contact_website" model="ir.actions.act_url">
+            <field name="name">Website Contact</field>
+            <field name="target">self</field>
+            <field name="url" eval="'/contact/'"/>
+        </record>
+
+    </data>
+</odoo>

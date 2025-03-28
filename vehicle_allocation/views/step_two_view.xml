@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+        <template id="step_two_page" name="Step-Two - Détails du Véhicule">
+            <t t-call="website.layout">
+                <div class="container py-5">
+
+                    <h2 class="text-center text-primary mb-4">🚗 Détails du Véhicule</h2>
+
+                    <t t-if="car">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <t t-if="car.vehicle_image">
+                                    <img t-att-src="'/web/image/fleet.vehicle/' + str(car.id) + '/vehicle_image'"
+                                         class="img-fluid rounded shadow-lg"
+                                         alt="Image du véhicule"
+                                         style="height: 300px; object-fit: cover;"/>
+                                </t>
+                                <t t-else="">
+                                    <img src="/web/static/src/img/placeholder.png"
+                                         class="img-fluid rounded shadow-lg"
+                                         alt="Image non disponible"
+                                         style="height: 300px; object-fit: cover;"/>
+                                </t>
+                            </div>
+
+                            <div class="col-md-6">
+                                <h3 class="text-dark mb-3">
+                                    <t t-esc="car.name"/>
+                                </h3>
+                                <p class="lead text-muted">
+                                    <strong>🚘 Modèle :</strong> <t t-esc="car.model_id.name or 'Non spécifié'"/><br/>
+                                    <strong>🏭 Fabricant :</strong> <t t-esc="car.model_id.brand_id.name or 'Inconnu'"/><br/>
+                                    <strong>💵 Prix :</strong> <t t-esc="car.price or 'Non spécifié'"/>
+                                </p>
+
+                                <t t-if="car.rental_contract_ids">
+                                    <h4 class="mt-4 text-primary">Contrats de Location</h4>
+                                    <ul class="list-unstyled">
+                                        <t t-foreach="car.rental_contract_ids" t-as="contract">
+                                            <li class="mb-3 border p-3 rounded shadow-sm">
+                                                <p><strong>Début du contrat :</strong>
+                                                    <t t-esc="contract.start_date.strftime('%d/%m/%Y') if contract.start_date else 'Non spécifié'"/>
+                                                </p>
+                                                <p><strong>Fin du contrat :</strong>
+                                                    <t t-esc="contract.expiration_date.strftime('%d/%m/%Y') if contract.expiration_date else 'Non spécifié'"/>
+                                                </p>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </t>
+                                <t t-else="">
+                                    <p class="text-center text-warning">Aucun contrat associé.</p>
+                                </t>
+                            </div>
+                        </div>
+
+                        <div class="mt-5">
+                            <h4 class="text-center text-primary mb-4">Formulaire de Réservation</h4>
+                            <form action="/fleet-booking/create-reservation" method="post"
+                                  class="p-4 border rounded shadow-sm">
+
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <input type="hidden" name="vehicle_id" t-att-value="car.id"/>
+
+                                <div class="form-group mb-3">
+                                    <input type="text" name="name" class="form-control"
+                                           required="required" placeholder="Nom"/>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <input type="email" name="email" class="form-control"
+                                           required="required" placeholder="Email"/>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <input type="text" name="phone" class="form-control"
+                                           required="required" placeholder="Téléphone"/>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label>Date début</label>
+                                    <input type="date" name="start_date" class="form-control"
+                                           t-att-value="start_date or ''" required="required"/>
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <label>Date fin</label>
+                                    <input type="date" name="end_date" class="form-control"
+                                           t-att-value="end_date or ''" required="required"/>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">Confirmer</button>
+                            </form>
+                        </div>
+
+                    </t>
+
+                    <t t-else="">
+                        <p class="text-center text-danger">🚫 Détails du véhicule non trouvés.</p>
+                    </t>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <template id="quotation_confirmation" name="Confirmation Devis">
+            <t t-call="website.layout">
+                <t t-set="page_name" t-value="'confirmation_devis'" />
+                <div class="container py-5 text-center">
+                    <h2 class="text-success mb-4">🎉 Contact &amp; Devis créés avec succès !</h2>
+                    <p>
+                        Merci <strong><t t-esc="partner.name"/></strong>,
+                        votre demande a bien été prise en compte.
+                    </p>
+                    <p>
+                        Réservation du <strong><t t-esc="start_date"/></strong>
+                        au <strong><t t-esc="end_date"/></strong>.
+                    </p>
+                    <p>
+                        ID Devis : <strong><t t-esc="order.name"/></strong>
+                    </p>
+
+                    <a href="/" class="btn btn-primary mt-4">Retour à l'accueil</a>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

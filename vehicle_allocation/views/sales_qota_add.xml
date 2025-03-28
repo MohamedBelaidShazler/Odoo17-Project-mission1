@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="sales_vehicle_form_inherit" model="ir.ui.view">
+            <field name="name">sales.vehicle.form.inherit.dates</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//field[@name='sale_order_template_id']" position="before">
+                    <group string="Informations Véhicule">
+                        <field name="vehicle_id" />
+                        <field name="start_date" />
+                        <field name="end_date" />
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

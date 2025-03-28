@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+
+        <template id="contact_us_page" name="Contactez-nous">
+            <t t-call="website.layout">
+                <div class="container py-5">
+                    <h2 class="text-center text-primary mb-4">📞 Contactez-nous</h2>
+                    <div class="row">
+                        <!-- Informations de contact -->
+                        <div class="col-md-6">
+                            <h4 class="text-primary"><i class="fa fa-map-marker-alt"></i> Notre adresse</h4>
+                            <p class="lead">
+                                <strong>Adresse :</strong> 123 Rue de l'Entreprise, Paris, France <br/>
+                                <strong>Email :</strong> <a href="mailto:contact@votreentreprise.com" class="text-primary">contact@votreentreprise.com</a> <br/>
+                                <strong>Téléphone :</strong> <a href="tel:+1234567890" class="text-primary">+123 456 7890</a>
+                            </p>
+                        </div>
+
+                        <!-- Formulaire de contact -->
+                        <div class="col-md-6">
+                            <h4 class="text-primary"><i class="fa fa-paper-plane"></i> Envoyez-nous un message</h4>
+                            <form action="" method="post" class="contact-form">
+                                <div class="form-group">
+                                    <label for="user_name">Nom et prénom :</label>
+                                    <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Entrez votre nom" />
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="user_email">Email :</label>
+                                    <input type="email" id="user_email" name="user_email" class="form-control" placeholder="Entrez votre email" />
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="subject">Téléphone :</label>
+                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Entrez le Numéro" />
+                                </div>
+                                 <div class="form-group mt-3">
+                                    <label for="subject">Adresse :</label>
+                                    <input type="text" id="subject" name="subject" class="form-control" placeholder="Entrez Adresse" />
+                                 </div>
+                                <button type="submit" class="btn btn-primary w-100 mt-4">Envoyer le message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

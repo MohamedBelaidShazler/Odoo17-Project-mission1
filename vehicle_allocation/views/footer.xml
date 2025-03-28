@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+
+       <!--  <template id="custom_footer" inherit_id="website.layout">
+            <xpath expr="//head" position="inside">
+
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+            </xpath>
+            <xpath expr="//footer" position="replace">
+                <footer class="bg-dark text-white py-5">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-3 mb-4">
+                                <h5>À propos</h5>
+                                <p>
+                                    Nous sommes une entreprise spécialisée dans la location de véhicules pour tous vos besoins de transport.
+                                    Découvrez notre large gamme de véhicules disponibles pour tous types de déplacements.
+                                </p>
+                            </div>
+
+                            <div class="col-md-3 mb-4">
+                                <h5>Liens utiles</h5>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="text-white">À propos de nous</a></li>
+                                    <li><a href="#" class="text-white">Nos services</a></li>
+                                    <li><a href="/contact" class="text-white">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <h5>Suivez-nous</h5>
+                                <ul class="list-unstyled d-flex justify-content-start">
+                                    <li><a href="#" class="text-white me-3 p-2 social-icon rounded-circle"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" class="text-white me-3 p-2 social-icon rounded-circle"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" class="text-white me-3 p-2 social-icon rounded-circle"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#" class="text-white p-2 social-icon rounded-circle"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+
+
+                            <div class="col-md-3 mb-4">
+                                <h5>Contactez-nous</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-marker-alt"></i> 123 Rue de la Location, Paris</li>
+                                    <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+                                    <li><i class="fas fa-envelope"></i> contact@entreprise.com</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-12 text-center">
+                                <p>&#169; 2025 Mon Entreprise - Tous droits réservés</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </xpath>
+        </template> -->
+
+    </data>
+</odoo>

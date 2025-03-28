@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <!-- Héritage de la vue formulaire de fleet.vehicle -->
+        <record id="fleet_vehicle_form_inherit" model="ir.ui.view">
+            <field name="name">fleet.vehicle.form.inherit.dates</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='location']" position="before">
+                    <field name="vehicle_image" widget="image"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

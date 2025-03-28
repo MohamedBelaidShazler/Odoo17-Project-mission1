@@ -1,0 +1,92 @@
+<odoo>
+    <data>
+        <template id="home_page" name="Page d'Accueil">
+            <t t-call="website.layout">
+                <div class="container py-5">
+                    <!-- Titre Principal -->
+                    <h1 class="text-center text-primary mb-4">Bienvenue sur notre site web</h1>
+
+                    <!-- Section "Qui sommes-nous" avec image -->
+                    <div class="row mb-5 align-items-center">
+                        <div class="col-md-6">
+                            <h2 class="text-secondary mb-3">Qui sommes-nous ?</h2>
+                            <p>Nous sommes une entreprise spécialisée dans la location de véhicules pour tous vos déplacements. Notre mission est de vous fournir des voitures de qualité à des prix abordables.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="/vehicle_allocation/static/src/img/logo.jpg" alt="Entreprise" class="img-fluid rounded w-75 shadow-lg"/>
+                        </div>
+                    </div>
+
+                    <!-- Section des services avec icônes -->
+                    <div class="row mb-5">
+                        <h2 class="text-secondary mb-3">Nos Services</h2>
+                        <div class="col-md-4">
+                            <div class="card shadow-lg border-0 text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-car fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title">Location de Véhicules</h5>
+                                    <p class="card-text">Nous offrons une large gamme de véhicules pour tous vos besoins de transport.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card shadow-lg border-0 text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-clock fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title">Service 24/7</h5>
+                                    <p class="card-text">Nos services sont disponibles 24 heures sur 24 et 7 jours sur 7 pour garantir votre confort.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card shadow-lg border-0 text-center">
+                                <div class="card-body">
+                                    <i class="fas fa-calendar-check fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title">Réservation Facile</h5>
+                                    <p class="card-text">Réservez un véhicule en ligne en quelques clics. Simple, rapide et sécurisé.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section des témoignages -->
+                    <div class="row mb-5">
+                        <div class="col-md-12 text-center">
+                            <h2 class="text-secondary mb-4">Témoignages de nos clients</h2>
+                            <div class="carousel slide" id="client-testimonials" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <p>"Excellente expérience de location, les véhicules sont en parfait état et le service est au top!" - Client A</p>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <p>"Très satisfait de mon expérience. Je recommande fortement!" - Client B</p>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <p>"Une équipe professionnelle et des voitures qui répondent à mes besoins. Je reviendrai!" - Client C</p>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#client-testimonials" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Précédent</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#client-testimonials" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Suivant</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section de contact -->
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h3 class="text-secondary mb-4">Nous Contacter</h3>
+                            <p>Pour toute question, n'hésitez pas à nous contacter. Nous serons heureux de vous répondre.</p>
+                            <a href="/contact" class="btn btn-primary">Contactez-nous</a>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

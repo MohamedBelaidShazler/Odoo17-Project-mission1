@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <template id="contact_confirmation" name="Confirmation de création de contact">
+            <t t-call="website.layout">
+                <div class="container py-5">
+                    <h2 class="text-center text-success">Votre contact a été créé avec succès !</h2>
+                    <div class="text-center">
+                        <p><strong>Nom :</strong> <t t-esc="partner.name"/></p>
+                        <p><strong>Email :</strong> <t t-esc="partner.email"/></p>
+                        <p><strong>Téléphone :</strong> <t t-esc="partner.phone"/></p>
+                        <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
